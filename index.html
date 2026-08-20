@@ -1,29 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-       header{
-        background-color: #659823;
-        color: black;
-        text-align: center;
-        max-width: 800px;
-        margin: 0 auto;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ervas & Oráculos | Sabedoria Ancestral</title>
     
-       } 
-       main{
-        background-color: black;
-        color: #659823;
-       }
+    <!-- Fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep-dark: #07120a;      /* Verde escuro místico */
+            --bg-container: #0e2013;      /* Verde floresta fechado */
+            --card-bg: #142a1b;           /* Verde esmeralda escuro */
+            --border-color: #22462c;      /* Borda verde médio */
+            --gold-accent: #d4af37;       /* Dourado místico */
+            --green-light: #a3d9a5;       /* Verde claro para destaques */
+            --text-primary: #e6f0e8;      /* Texto principal claro */
+            --text-secondary: #b0c4b3;    /* Texto secundário suave */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-deep-dark);
+            color: var(--text-primary);
+            font-family: 'Lora', serif;
+            line-height: 1.8;
+        }
+
+        /* Cabeçalho Imponente em Verde Escuro */
+        header {
+            background: linear-gradient(180deg, rgba(7, 18, 10, 0.75) 0%, rgba(7, 18, 10, 0.98) 100%), 
+                        url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            text-align: center;
+            padding: 90px 20px 60px 20px;
+            border-bottom: 2px solid var(--gold-accent);
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            letter-spacing: 3px;
+            color: var(--gold-accent);
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+            margin-bottom: 15px;
+        }
+
+        header p.subtitle {
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--green-light);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Container Central */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Introdução */
+        .intro-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--gold-accent);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .intro-box p {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+        }
+
+        /* Título de Seção */
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-accent);
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: "🌿 🔮 🐚";
+            display: block;
+            font-size: 1rem;
+            margin-top: 10px;
+            letter-spacing: 8px;
+        }
+
+        /* Grid de Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 35px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Estilo Individual dos Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-accent);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-body {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--bg-container);
+            color: var(--green-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-accent);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+            margin-bottom: 15px;
+        }
+
+        .curiosity-highlight {
+            background-color: rgba(7, 18, 10, 0.7);
+            border-left: 3px solid var(--green-light);
+            padding: 12px 15px;
+            margin-top: 15px;
+            font-style: italic;
+            color: var(--text-primary);
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--bg-container);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 0.95rem;
+        }
+
+        footer strong {
+            color: var(--gold-accent);
+        }
     </style>
 </head>
 <body>
-    <h1>blog sobre ervas e oráculos</h1>
-</body>
-</p>Ervas e oráculos combinam a sabedoria natural com a intuição. As cartas trazem mensagens das plantas para rituais e direcionamento espiritual, enquanto as ervas purificam e equilibram a energia com banhos e defumações.</p>
-<h2>meu primeiro post</h2>
-<p>sejam bem-vindos ao meu blog sobre curiosidades de ervas e oráculos! Aqui vamos compartilhar fundamentos e curiosidades</p>
+
+    <!-- Header -->
+    <header>
+        <h1>Ervas & Oráculos</h1>
+        <p class="subtitle">Curiosidades e segredos místico-ancestrais em sintonia com a força da natureza</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Apresentação do Blog -->
+        <section class="intro-box">
+            <p>Seja bem-vindo ao nosso santuário digital! Ervas e oráculos caminham lado a lado: enquanto as cartas e búzios revelam caminhos e energias sutis, os banhos e defumações com ervas atuam limpando, nutrindo e equilibrando nosso campo vital.</p>
+        </section>
+
+        <!-- Seção Principal de Curiosidades -->
+        <h2 class="section-title">Curiosidades & Saberes Ancestrais</h2>
+
+        <div class="grid">
+
+            <!-- 1. TAROT -->
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=80" alt="Cartas de Tarot e Cristais" class="card-img">
+                <div class="card-body">
+                    <span class="badge">Oráculo Ocidental</span>
+                    <h2>O Tarot & A Jornada do Louco</h2>
+                    <p>O Tarot conta com 78 cartas divididas entre Arcanos Maiores e Menores. Os 22 Arcanos Maiores narram uma alegoria profunda sobre a evolução espiritual humana, conhecida como <em>"A Jornada do Louco"</em>.</p>
+                    <div class="curiosity-highlight">
+                        ✨ <strong>Curiosidade:</strong> O Tarot não foi criado originalmente para prever o futuro! No século XV, na Itália, era apenas um jogo de cartas aristocrático chamado <em>"Tarocchi"</em>. Sua função oracular e filosófica só foi desenvolvida séculos depois.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2. BARALHO CIGANO -->
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1572947650440-e8a97ef053b2?auto=format&fit=crop&w=800&q=80" alt="Leitura de Cartas Oráculo com Velas" class="card-img">
+                <div class="card-body">
+                    <span class="badge">Oráculo Direto</span>
+                    <h2>O Baralho Cigano (Petit Lenormand)</h2>
+                    <p>Composto por 36 cartas objetivas e ricas em simbolismo cotidiano (como a Chave, a Carta, o Anel e a Árvore), o Baralho Cigano é famoso por sua clareza prática e precisão para questões do dia a dia.</p>
+                    <div class="curiosity-highlight">
+                        ✨ <strong>Curiosidade:</strong> Apesar do nome no Brasil, ele nasceu na Alemanha como um jogo de tabuleiro e foi popularizado pela famosa cartomante francesa Madame Lenormand. A tradição cigana o adotou e espalhou sua energia pelo mundo.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3. BANHO DE ERVAS -->
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Preparo de Ervas Medicinais e Ritualísticas" class="card-img">
+                <div class="card-body">
+                    <span class="badge">Magia Botânica</span>
+                    <h2>O Poder dos Banhos de Ervas</h2>
+                    <p>Os banhos fitoenergéticos atuam diretamente na aura e nos chakras. As plantas dividem-se em <strong>ervas quentes</strong> (limpeza pesada, como guiné e jiboia), <strong>mornas</strong> (equilíbrio e proteção, como alecrim e manjericão) e <strong>frias</strong> (atração e paz, como rosa branca e alfazema).</p>
+                    <div class="curiosity-highlight">
+                        ✨ <strong>Curiosidade:</strong> Nunca tome banho de ervas quentes (limpeza profunda) da cabeça para baixo. Ervas quentes devem ser jogadas sempre do pescoço para baixo para não sobrecarregar o chakra coronário!
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4. JOGO DE BÚZIOS -->
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Conchas do Mar e Búzios Sagrados" class="card-img">
+                <div class="card-body">
+                    <span class="badge">Oráculo Africano</span>
+                    <h2>O Jogo de Búzios (Merindilogun)</h2>
+                    <p>Tradicional das religiões de matriz africana, o jogo utiliza 16 conchas marinhas sagradas. Conforme a posição em que os búzios caem (abertos ou fechados), formam-se combinações divinas chamadas <em>Odús</em>.</p>
+                    <div class="curiosity-highlight">
+                        ✨ <strong>Curiosidade:</strong> Os búzios não revelam apenas o futuro: eles funcionam como uma ponte direta de conversa com os Orixás e guias mentores, indicando também quais banhos ou rituais a pessoa precisa para equilibrar sua vida.
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p><strong>Blog sobre Ervas & Oráculos</strong> &copy; Conexão, intuição e sabedoria vegetal.</p>
+    </footer>
+
 </body>
 </html>
